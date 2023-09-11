@@ -1,0 +1,43 @@
+{
+  "name": "drinky-backend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "graphql": "^16.2.0",
+    "knex": "0.21.18",
+    "pg": "^8.7.3",
+    "pg-connection-string": "^2.5.0",
+    "slugify": "^1.6.5",
+    "sqlite3": "5.0.0",
+    "strapi": "3.5.4",
+    "strapi-admin": "3.5.4",
+    "strapi-connector-bookshelf": "3.5.4",
+    "strapi-plugin-content-manager": "3.5.4",
+    "strapi-plugin-content-type-builder": "3.5.4",
+    "strapi-plugin-email": "3.5.4",
+    "strapi-plugin-upload": "3.5.4",
+    "strapi-plugin-users-permissions": "3.5.4",
+    "strapi-provider-email-nodemailer": "^3.6.10",
+    "strapi-provider-upload-cloudinary": "^3.6.8",
+    "strapi-utils": "3.5.4"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "344f700c-7687-48b8-b935-b3002065b3ca"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": "^6.0.0"
+  },
+  "license": "MIT"
+}

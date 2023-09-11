@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "homes",
+  "info": {
+    "name": "Homes",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "address": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "user": {
+      "via": "home",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "createdAt": {
+      "type": "date"
+    },
+    "open": {
+      "type": "boolean"
+    },
+    "location": {
+      "type": "json"
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "animal": {
+      "type": "string"
+    },
+    "guest": {
+      "via": "homein",
+      "plugin": "users-permissions",
+      "collection": "user"
+    },
+    "favorites": {
+      "collection": "favorites",
+      "via": "home"
+    },
+    "reviews": {
+      "collection": "reviews",
+      "via": "home"
+    },
+    "access": {
+      "type": "string"
+    }
+  }
+}

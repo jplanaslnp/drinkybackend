@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviews_users",
+  "info": {
+    "name": "ReviewsUser",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "user_reviewed": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

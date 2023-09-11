@@ -1,0 +1,92 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/requests",
+      "handler": "request.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/requests/me",
+      "handler": "request.me",
+      "config": {
+        "policies": []
+      }
+    }, 
+    {
+      "method": "GET",
+      "path": "/requests/count",
+      "handler": "request.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/requests/:id",
+      "handler": "request.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/requests/home/:id",
+      "handler": "request.home",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/requests/homecheck/:id",
+      "handler": "request.homeCheck",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/requests",
+      "handler": "request.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/requests/:id",
+      "handler": "request.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/requests/closeHouse/:id",
+      "handler": "request.updateOnHouseClosed",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/requests/deleteall",
+      "handler": "request.deleteAll",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/requests/:id",
+      "handler": "request.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

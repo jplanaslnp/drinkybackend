@@ -1,0 +1,76 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/homes",
+      "handler": "homes.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/homes/me",
+      "handler": "homes.me",
+      "config": {
+        "policies": []
+      }
+    },    
+    {
+      "method": "GET",
+      "path": "/homes/findallnear/:latitude/:longitude/",
+      "handler": "homes.findAllNear",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/homes/count",
+      "handler": "homes.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/homes/:slug",
+      "handler": "homes.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/homes/id/:id",
+      "handler": "homes.findOneById",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/homes",
+      "handler": "homes.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/homes/:id",
+      "handler": "homes.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/homes/:id",
+      "handler": "homes.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

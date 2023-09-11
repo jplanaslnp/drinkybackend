@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviews",
+  "info": {
+    "name": "Reviews",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "user": {
+      "via": "reviews",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "home": {
+      "via": "reviews",
+      "model": "homes"
+    },
+    "text": {
+      "type": "text"
+    }
+  }
+}
