@@ -64,8 +64,8 @@
       "via": "user"
     },
     "profile": {
-      "model": "profiles",
-      "via": "user"
+      "via": "user",
+      "model": "profiles"
     },
     "name": {
       "type": "string"

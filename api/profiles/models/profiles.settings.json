@@ -49,14 +49,17 @@
       "required": false
     },
     "user": {
-      "via": "profile",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "profile"
     },
     "location": {
       "type": "json"
     },
     "address": {
+      "type": "string"
+    },
+    "languages": {
       "type": "string"
     }
   }
