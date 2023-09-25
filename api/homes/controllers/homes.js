@@ -77,6 +77,26 @@ module.exports = {
       ctx.request.body.user = ctx.state.user.id;
       entity = await strapi.services.homes.create(ctx.request.body);
     }
+
+    // Populate relationships in the created entity
+    entity = await strapi.services.homes.findOne({ id: entity.id }, [
+      "guest",
+      "guest.profile",
+      "guest.profile.images",
+      "user",
+      "user.profile",
+      "user.profile.images",
+      "images",
+      "favorites",
+      "favorites.user",
+      "favorites.user.profile",
+      "favorites.user.profile.images",
+      "reviews",
+      "reviews.user",
+      "reviews.user.profile",
+      "reviews.user.profile.images",
+    ]);
+
     return sanitizeEntity(entity, { model: strapi.models.homes });
   },
   // Update user home
@@ -102,6 +122,27 @@ module.exports = {
     } else {
       entity = await strapi.services.homes.update({ id }, ctx.request.body);
     }
+
+    // Populate relationships in the created entity
+    entity = await strapi.services.homes.findOne({ id: entity.id }, [
+      "guest",
+      "guest.profile",
+      "guest.profile.images",
+      "user",
+      "user.profile",
+      "user.profile.images",
+      "images",
+      "favorites",
+      "favorites.user",
+      "favorites.user.profile",
+      "favorites.user.profile.images",
+      "reviews",
+      "reviews.user",
+      "reviews.user.profile",
+      "reviews.user.profile.images",
+    ]);
+
+    console.log("EEEEEE: ", entity);
 
     return sanitizeEntity(entity, { model: strapi.models.homes });
   },
