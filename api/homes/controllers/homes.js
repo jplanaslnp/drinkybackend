@@ -10,6 +10,30 @@ const _ = require("lodash");
  */
 
 module.exports = {
+  async find(ctx) {
+    const { slug } = ctx.params;
+    const sort = "open:DESC";
+
+    const data = await strapi.services.homes.find({ _sort: sort }, [
+      "guest",
+      "guest.profile",
+      "guest.profile.images",
+      "user",
+      "user.profile",
+      "user.profile.images",
+      "images",
+      "favorites",
+      "favorites.user",
+      "favorites.user.profile",
+      "favorites.user.profile.images",
+      "reviews",
+      "reviews.user",
+      "reviews.user.profile",
+      "reviews.user.profile.images",
+    ]);
+
+    return sanitizeEntity(data, { model: strapi.models.homes });
+  },
   // Get home by slug
   async findOne(ctx) {
     const { slug } = ctx.params;
