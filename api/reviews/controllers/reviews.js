@@ -9,15 +9,12 @@ const { sanitizeEntity } = require("strapi-utils");
 module.exports = {
   // Create reviews with linked user
   async create(ctx) {
-    console.log("Createtetete: ", ctx);
     let entity;
     ctx.request.body.user = ctx.state.user.id;
     entity = await strapi.services.reviews.create(ctx.request.body);
 
     const data = await strapi.services.profiles.find({ user: entity.user.id });
     entity.user.profile = data[0];
-
-    console.log("Entity: ", entity);
 
     return sanitizeEntity(entity, { model: strapi.models.reviews });
   },

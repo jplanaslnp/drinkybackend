@@ -23,11 +23,30 @@ module.exports = {
         { messages: [{ id: "No authorization header was found" }] },
       ]);
     }
-    const data = await strapi.services.request.find({
-      user: user.id,
-      status_in: ["pending", "accepted"],
-      _sort: "created_at:desc",
-    });
+    const data = await strapi.services.request.find(
+      {
+        user: user.id,
+        status_in: ["pending", "accepted"],
+        _sort: "created_at:desc",
+      },
+      [
+        "home.guest",
+        "home.guest.profile",
+        "home.guest.profile.images",
+        "home.user",
+        "home.user.profile",
+        "home.user.profile.images",
+        "home.images",
+        "home.favorites",
+        "home.favorites.user",
+        "home.favorites.user.profile",
+        "home.favorites.user.profile.images",
+        "home.reviews",
+        "home.reviews.user",
+        "home.reviews.user.profile",
+        "home.reviews.user.profile.images",
+      ]
+    );
 
     if (!data) {
       return ctx.notFound();

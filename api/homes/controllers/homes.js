@@ -66,7 +66,6 @@ module.exports = {
   // Get home by id
   async findOneById(ctx) {
     const { id } = ctx.params;
-    console.log("findOneById: ", id);
     const entity = await strapi.services.homes.findOne({ id: id });
 
     return sanitizeEntity(entity, { model: strapi.models.homes });
