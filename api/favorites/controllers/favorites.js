@@ -28,9 +28,28 @@ module.exports = {
       ]);
     }
 
-    const data = await strapi.services.favorites.find({
-      user: user.id,
-    });
+    const data = await strapi.services.favorites.find(
+      {
+        user: user.id,
+      },
+      [
+        "home.guest",
+        "home.guest.profile",
+        "home.guest.profile.images",
+        "home.user",
+        "home.user.profile",
+        "home.user.profile.images",
+        "home.images",
+        "home.favorites",
+        "home.favorites.user",
+        "home.favorites.user.profile",
+        "home.favorites.user.profile.images",
+        "home.reviews",
+        "home.reviews.user",
+        "home.reviews.user.profile",
+        "home.reviews.user.profile.images",
+      ]
+    );
 
     if (!data) {
       return ctx.notFound();

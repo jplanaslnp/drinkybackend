@@ -61,7 +61,17 @@ module.exports = {
   // Get home by id
   async findOneById(ctx) {
     const { id } = ctx.params;
+    console.log("findOneById: ", id);
     const entity = await strapi.services.homes.findOne({ id: id });
+
+    return sanitizeEntity(entity, { model: strapi.models.homes });
+  },
+
+  // Get home by id
+  async findOneByIdd(ctx) {
+    const entity = await strapi.services.homes.findOne({
+      id: ctx.request.body,
+    });
 
     return sanitizeEntity(entity, { model: strapi.models.homes });
   },
@@ -141,8 +151,6 @@ module.exports = {
       "reviews.user.profile",
       "reviews.user.profile.images",
     ]);
-
-    console.log("EEEEEE: ", entity);
 
     return sanitizeEntity(entity, { model: strapi.models.homes });
   },

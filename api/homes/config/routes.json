@@ -42,8 +42,16 @@
     },
     {
       "method": "GET",
-      "path": "/homes/id/:id",
+      "path": "/homes/:id",
       "handler": "homes.findOneById",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/homes/id",
+      "handler": "homes.findOneByIdd",
       "config": {
         "policies": []
       }

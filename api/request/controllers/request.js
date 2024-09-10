@@ -37,23 +37,51 @@ module.exports = {
   // Update user home
   async update(ctx) {
     const { id } = ctx.params;
-    console.log(" ctx.paramsssdsdsd. ", ctx.params);
-    console.log(" ctx. ctx.state.user.id. ", ctx.state.user.id);
-
     let entity;
 
-    const [requests] = await strapi.services.request.find({
-      id: ctx.params.id,
-      // "user.id": ctx.state.user.id,
-    });
-
-    console.log("requestssdsdsd: ", requests);
+    const [requests] = await strapi.services.request.find(
+      {
+        id: ctx.params.id,
+      },
+      [
+        "home.guest",
+        "home.guest.profile",
+        "home.guest.profile.images",
+        "home.user",
+        "home.user.profile",
+        "home.user.profile.images",
+        "home.images",
+        "home.favorites",
+        "home.favorites.user",
+        "home.favorites.user.profile",
+        "home.favorites.user.profile.images",
+        "home.reviews",
+        "home.reviews.user",
+        "home.reviews.user.profile",
+        "home.reviews.user.profile.images",
+      ]
+    );
 
     if (!requests) {
       return ctx.unauthorized(`You can't update this entry`);
     }
 
     entity = await strapi.services.request.update({ id }, ctx.request.body);
+
+    if (ctx.request.body.status === "finished") {
+      const guests = home.guest.filter(
+        (guest) => guest.id !== ctx.state.user.id
+      );
+
+      const home = requests.home;
+      home.guest = guests;
+      home.user = home.user.id;
+
+      await strapi.services.homes.update(
+        { id: ctx.request.body.home.id },
+        home
+      );
+    }
 
     return sanitizeEntity(entity, { model: strapi.models.request });
   },
