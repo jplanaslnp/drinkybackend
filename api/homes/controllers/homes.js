@@ -55,6 +55,11 @@ module.exports = {
       "reviews.user.profile.images",
     ]);
 
+    // Sort reviews by id
+    if (entity && entity.reviews) {
+      entity.reviews = entity.reviews.sort((a, b) => b.id - a.id);
+    }
+
     return sanitizeEntity(entity, { model: strapi.models.homes });
   },
 
